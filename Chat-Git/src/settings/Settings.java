@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
+import formatControl.formatControl;
+
 public class Settings {
 	private static String settingsPath;
 	private static Properties properties;
@@ -26,7 +28,8 @@ public class Settings {
 			try { 
 				//load existing settings
 				FileReader reader = new FileReader(settingsFile);
-				properties.load(reader);				
+				properties.load(reader);
+				controlSettings();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -87,6 +90,18 @@ public class Settings {
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
+		}
+	}
+	
+	public static void controlSettings(){
+		//nickname errato
+		if(!formatControl.estCorrectNickFormat(properties.getProperty("nickname"))){
+			resetNickname();
+			saveSettings();
+		}
+		if(!formatControl.estCorrectPortFormat(properties.getProperty("port"))){
+			resetPort();
+			saveSettings();
 		}
 	}
 	
