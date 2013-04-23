@@ -70,6 +70,8 @@ public class VirtualChat implements Runnable
         	}
         	catch(IOException e)
         	{
+        		connectionDirector.connectionBroken();
+				close();
         		e.printStackTrace();
         	}
         }

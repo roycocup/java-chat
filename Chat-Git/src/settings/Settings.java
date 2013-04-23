@@ -69,9 +69,9 @@ public class Settings {
 		String userDir = System.getProperty("user.home");
 		
 		
-		if(osName.matches(".*(W|w)indows.*")){
+		if(osName.matches(".*[Ww]indows.*")){
 			userDir = userDir.concat("\\AppData\\Roaming\\ChatJava\\chat.conf");
-		}else if(osName.matches(".*(L|l)inux.*")){
+		}else if(osName.matches(".*[Ll]inux.*")){
 			userDir = userDir.concat("/.chatJava/chat.conf");
 		}else{
 			userDir = userDir.concat(File.separator+"ChatJava"+File.separator+"chat.conf");
