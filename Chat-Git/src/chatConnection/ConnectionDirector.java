@@ -48,7 +48,6 @@ public class ConnectionDirector
 		if(vchat != null && vchat.isOnline()){
 			vchat.close();
 		}
-		System.out.println("ciao");
 		int portInt = Integer.parseInt(port);
 		ConnectionClient connectionClient = new ConnectionClient(this, hostname, portInt);
 		Thread clientThread = new Thread(connectionClient);
