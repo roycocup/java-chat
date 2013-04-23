@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 import settings.Settings;
 import conversation.Conversation;
 import chatConnection.ConnectionDirector;
+import formatControl.formatControl;
 import graphics.ConnectWindow;
 import graphics.InfoWindow;
 import graphics.MainWindow;
@@ -113,7 +114,7 @@ public class ChatEngine {
     // IO method
     public synchronized static void send(){
         String textToSend = mainWindow.read();
-        if(!textToSend.matches("\\s+") && !textToSend.equals("")){
+        if(formatControl.estCorrectMessageFormat(textToSend)){
             try {
                 connectionDirector.sendMessage(textToSend);
                 post(textToSend, Conversation.ME);

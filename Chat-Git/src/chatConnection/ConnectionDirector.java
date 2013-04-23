@@ -12,9 +12,6 @@ public class ConnectionDirector
 	private ConnectionServer connectionServer;
 	private VirtualChat vchat;
 	
-	
-	
-	
 	//server
 	public void startServer()
 	{
@@ -67,15 +64,11 @@ public class ConnectionDirector
 	
 	public void  connectionEstabilished(Socket socket)
 	{
-		
-		
 		connectionServer.close();
 		ChatEngine.connectionEstabilished(socket.getInetAddress().getHostAddress());
 		vchat = new VirtualChat(this, socket);
 		Thread chatThread = new Thread(vchat);
 		chatThread.start();
-		
-		
 	}
 	
 	public void connectionBroken(){
@@ -84,10 +77,7 @@ public class ConnectionDirector
 		
 	}
 	
-	
-	
-	
-	
+		
 	// in/out message
 	public void sendMessage(String mex) throws IOException{
 		if(vchat == null)
@@ -95,9 +85,6 @@ public class ConnectionDirector
 		else
 			vchat.sendMessage(mex);
 	}
-	
-	
-	
 	
 	public void incomingMessage(String mex){
 		ChatEngine.incomingMessage(mex);
