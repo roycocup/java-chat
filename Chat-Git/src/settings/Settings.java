@@ -51,10 +51,9 @@ public class Settings {
 	}
 	
 	private static Properties getDefaultProperties(){
-		File path = new File(Settings.class.getResource("defaults.conf").getPath());
 		Properties defaultProperties = new Properties();
 		try{
-			defaultProperties.load(new FileReader(path));
+			defaultProperties.load(Settings.class.getResourceAsStream("defaults.conf"));
 		} catch (FileNotFoundException e) {
 			//non succede
 			e.printStackTrace();
