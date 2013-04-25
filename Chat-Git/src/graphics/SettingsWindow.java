@@ -99,7 +99,7 @@ public class SettingsWindow extends JFrame implements ActionListener{
 			this.setVisible(false);
 		}else if (command.equals("cancel")){
 			nicknameText.setText(Settings.getNickname());
-			Settings.setPort(serverPortText.getText());
+			serverPortText.setText(Settings.getPort());
 			this.setVisible(false);
 		}else if (command.equals("resetPort")){
 			serverPortText.setText(Settings.getDefaultPort());
