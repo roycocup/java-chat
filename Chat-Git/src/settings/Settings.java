@@ -41,7 +41,7 @@ public class Settings {
 			try {
 				//create conf file
 				settingsFile.createNewFile();
-				properties = defaultProperties;
+				properties = (Properties) defaultProperties.clone();
 				saveSettings();
 			} catch (IOException e) {
 				e.printStackTrace();
