@@ -25,6 +25,8 @@ public class Spyer implements ActionListener, KeyListener{
 		}
 		else if(actionCommand == "connectMenu"){
 			ChatEngine.openConnectWindow();
+		}else if(actionCommand == "settingsMenu"){
+			ChatEngine.openSettingsWindow();
 		}
 			
 		

@@ -10,6 +10,7 @@ import formatControl.formatControl;
 import graphics.ConnectWindow;
 import graphics.InfoWindow;
 import graphics.MainWindow;
+import graphics.SettingsWindow;
 
 public class ChatEngine {
     
@@ -17,6 +18,8 @@ public class ChatEngine {
     private static MainWindow mainWindow;
     private static ConnectWindow connectWindow;
     private static InfoWindow infoWindow;
+    private static SettingsWindow settingsWindow;
+    //connectionDirector
     private static ConnectionDirector connectionDirector;
     //conversation
     private static Conversation conversation;
@@ -26,9 +29,10 @@ public class ChatEngine {
     
     public ChatEngine(){
     	this.settings=new Settings();
-        connectWindow = new ConnectWindow();
-        conversation = new Conversation();
+    	conversation = new Conversation();
+    	connectWindow = new ConnectWindow();
         infoWindow = new InfoWindow();
+        settingsWindow = new SettingsWindow();
         mainWindow = new MainWindow();
         
         
@@ -54,6 +58,13 @@ public class ChatEngine {
     public synchronized static void closeInfoWindow(){
         infoWindow.setVisible(false);
     }
+    public synchronized static void openSettingsWindow(){
+        settingsWindow.setVisible(true);
+    }
+    public synchronized static void closeSettingsWindow(){
+        settingsWindow.setVisible(false);
+    }
+    
     
     
     //connect to server

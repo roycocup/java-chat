@@ -3,6 +3,7 @@ package graphics;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.net.URL;
@@ -26,7 +27,7 @@ import javax.swing.text.DefaultCaret;
 import spyer.Spyer;
 
 
-public class MainWindow extends JFrame{
+public class MainWindow extends JFrame {
 
 	//window data
 	private static final String title = "Chat";
@@ -43,6 +44,7 @@ public class MainWindow extends JFrame{
 	private static final JPanel bottomPanel = new JPanel(new BorderLayout());
 	//menu Area
 	private static final JMenuItem connect = new JMenuItem("Connect");
+	private static final JMenuItem settings = new JMenuItem("Settings");
 	private static final JMenu menu = new JMenu("Menu");
 	private static final JMenuItem about = new JMenuItem("About");
 	private static final JMenu info = new JMenu("Info");
@@ -77,6 +79,9 @@ public class MainWindow extends JFrame{
 			connect.setActionCommand("connectMenu");
 			connect.addActionListener(actionSpyer);
 			menu.add(connect);
+			settings.setActionCommand("settingsMenu");
+			settings.addActionListener(actionSpyer);
+			menu.add(settings);
 			menuBar.add(menu);
 			//info
 			about.setActionCommand("info");
@@ -168,6 +173,5 @@ public class MainWindow extends JFrame{
 		statusIconLabel.setIcon(new ImageIcon(statusIconURL));
 		connectionStatus.setText(text);
 	}
-
 	
 }

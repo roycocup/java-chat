@@ -108,9 +108,14 @@ public class Settings {
 	public static String getNickname(){
 		return properties.getProperty("nickname");
 	}
+	public static String getDefaultNickname(){
+		return defaultProperties.getProperty("nickname");
+	}
 	public static void setNickname(String nickname){
-		properties.setProperty("nickname", nickname);
-		saveSettings();
+		if(formatControl.estCorrectNickFormat(nickname)){
+			properties.setProperty("nickname", nickname);
+			saveSettings();
+		}
 	}
 	public static void resetNickname(){
 		properties.setProperty("nickname", defaultProperties.getProperty("nickname"));
@@ -120,9 +125,14 @@ public class Settings {
 	public static String getPort(){
 		return properties.getProperty("port");
 	}
-	public void setPort(String port){
-		properties.setProperty("port", port);
-		saveSettings();
+	public static String getDefaultPort(){
+		return defaultProperties.getProperty("port");
+	}
+	public static void setPort(String port){
+		if(formatControl.estCorrectPortFormat(port)){
+			properties.setProperty("port", port);
+			saveSettings();
+		}
 	}
 	public static void resetPort(){
 		properties.setProperty("port", defaultProperties.getProperty("port"));
