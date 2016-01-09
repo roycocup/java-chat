@@ -28,17 +28,15 @@ public class ConnectionServer implements Runnable {
 		
 	public void run()
 	{
-		try
-		{
+		try {
 			this.serverSocket = new ServerSocket(this.port);
 			connectionDirector.serverStarted();
-		}
-		catch(IOException ioe)
-		{
+		} catch(IOException ioe) {
 			//server failed to start
 			connectionDirector.serverFailedToStart();
 			ioe.printStackTrace();
 		}
+
 		try {
 			this.transmission = serverSocket.accept();
 			connectionDirector.connectionEstabilished(transmission);

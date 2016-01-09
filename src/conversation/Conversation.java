@@ -1,3 +1,7 @@
+/**
+ * Sets the format of the conversation display.
+ */
+
 package conversation;
 
 import settings.Settings;

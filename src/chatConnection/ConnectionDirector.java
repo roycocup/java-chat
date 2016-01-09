@@ -2,9 +2,6 @@ package chatConnection;
 
 import java.io.IOException;
 import java.net.Socket;
-
-import settings.Settings;
-
 import chatEngine.ChatEngine;
 
 public class ConnectionDirector 
@@ -14,27 +11,28 @@ public class ConnectionDirector
 	private static String sourceIP;
 	
 	//server
-	public void startServer()
-	{
-		int portInt = Integer.parseInt(ChatEngine.getPort());
-		connectionServer = new ConnectionServer(this, portInt);
-		Thread serverThread = new Thread(connectionServer);
-		serverThread.start();
-	}
 	public void checkPublicIp(){
 		Thread discoverIpThread = new Thread(new DicoverPublicIp());
 		discoverIpThread.start();
 	}
-	
+	public void startServer()
+	{
+		int portInt = Integer.parseInt(ChatEngine.getPort());
+		connectionServer = new ConnectionServer(this, portInt);
+		new Thread(connectionServer).start();
+	}
+
 	public void serverStarted()
 	{
 		ChatEngine.serverStarted();
 	}
+
 	public void serverStopped(){
 		if(vchat != null && !vchat.isOnline()){
 			ChatEngine.setOfflineStatus();
 		}
 	}
+
 	public void serverFailedToStart(){
 		ChatEngine.serverFailedToStart();
 	}
@@ -103,6 +101,5 @@ public class ConnectionDirector
 	public synchronized static void setSourceIp(String myIp) {
 		ConnectionDirector.sourceIP = myIp;
 	}
-
 	
 }

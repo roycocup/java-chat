@@ -46,9 +46,7 @@ public class ConnectWindow extends JFrame implements KeyListener, ChangeListener
 		//content pane
 		Container cp = this.getContentPane();
 		cp.setLayout(new BorderLayout());
-		
-		
-		
+
 		hostName.addKeyListener(this);
 		northPanel.add(hostNameLabel);
 		northPanel.add(hostName);

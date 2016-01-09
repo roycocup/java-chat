@@ -1,4 +1,9 @@
- package chatEngine;
+/**
+ * Main controller that will start up every other system.
+ * Will call all other controllers at start, including UI and Server
+ */
+
+package chatEngine;
 
 import java.io.IOException;
 import javax.swing.SwingUtilities;
@@ -28,19 +33,17 @@ public class ChatEngine {
     
     
     public ChatEngine(){
-    	this.settings=new Settings();
-    	conversation = new Conversation();
-    	connectWindow = new ConnectWindow();
-        infoWindow = new InfoWindow();
-        settingsWindow = new SettingsWindow();
-        mainWindow = new MainWindow();
-        
-        
+    	settings            = new Settings();
+    	conversation        = new Conversation();
+    	connectWindow       = new ConnectWindow();
+        infoWindow          = new InfoWindow();
+        settingsWindow      = new SettingsWindow();
+        mainWindow          = new MainWindow();
         mainWindow.setVisible(true);
-        
-        connectionDirector = new ConnectionDirector();
+        connectionDirector  = new ConnectionDirector();
         connectionDirector.checkPublicIp();
         connectionDirector.startServer();
+
     }
     
     
@@ -100,7 +103,7 @@ public class ChatEngine {
     //server
     public synchronized static void serverStarted() {
         mainWindow.setConnectionStatus(MainWindow.SERVER_RUNNING);
-        post("server started on port "+Settings.getPort(), Conversation.SYSTEM);
+        post("server started on port "+getPort(), Conversation.SYSTEM);
     }
     public synchronized static void serverFailedToStart() {
         post("server failed to start", Conversation.SYSTEM);
@@ -117,11 +120,7 @@ public class ChatEngine {
     	post("your public ip: "+ip, Conversation.SYSTEM);
     }
     
-    public static String getPort(){
-    	return Settings.getPort();
-    }
-    
-    
+
     // IO method
     public synchronized static void send(){
         String textToSend = mainWindow.read();
@@ -155,6 +154,11 @@ public class ChatEngine {
 	public synchronized static void incomingChatElements(String otherNickname) {
 		settings.setOtherNickname(otherNickname);		
 	}
+
+
+    public static synchronized String getPort(){
+        return settings.getPort();
+    }
 
 
 
