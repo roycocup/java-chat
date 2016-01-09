@@ -23,7 +23,7 @@ public class ConnectionServer implements Runnable {
 	
 	public ConnectionServer(ConnectionDirector connectionDirector, int port){
 		this.connectionDirector = connectionDirector;
-		this.port=port;
+		this.port = port;
 	}
 		
 	public void run()
@@ -31,10 +31,10 @@ public class ConnectionServer implements Runnable {
 		try {
 			this.serverSocket = new ServerSocket(this.port);
 			connectionDirector.serverStarted();
-		} catch(IOException ioe) {
+		} catch(IOException e) {
 			//server failed to start
 			connectionDirector.serverFailedToStart();
-			ioe.printStackTrace();
+			e.printStackTrace();
 		}
 
 		try {

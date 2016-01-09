@@ -48,7 +48,6 @@ public class SettingsWindow extends JFrame implements ActionListener{
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		
 		//load icon
-		
 		ImageIcon resetIcon = new ImageIcon(MainWindow.class.getResource("icons/reset16.png"));
 		
 		//nikcnamePanel

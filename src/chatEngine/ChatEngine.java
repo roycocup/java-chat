@@ -43,7 +43,6 @@ public class ChatEngine {
         connectionDirector  = new ConnectionDirector();
         connectionDirector.checkPublicIp();
         connectionDirector.startServer();
-
     }
     
     
@@ -72,6 +71,7 @@ public class ChatEngine {
     
     //connect to server
     public synchronized static void connectToServer(){
+        // Get the host and port from the UI.
         String host = connectWindow.getHost();
         String port = connectWindow.getPort();
         connectWindow.setVisible(false);

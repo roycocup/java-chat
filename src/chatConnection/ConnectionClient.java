@@ -18,7 +18,7 @@ public class ConnectionClient implements Runnable{
 	public ConnectionClient(ConnectionDirector connectionDirector, String hostname, int port){
 		this.connectionDirector = connectionDirector;
 		this.hostname = hostname;
-		this.port=port;
+		this.port = port;
 		this.socket = new Socket();
 	}
 

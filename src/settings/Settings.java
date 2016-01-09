@@ -17,9 +17,9 @@ public class Settings {
 	
 	public Settings(){
 		
-		properties = new Properties();
-		defaultProperties = getDefaultProperties();
-		settingsPath = getLocalSettingsPath();
+		properties 			= new Properties();
+		defaultProperties 	= getDefaultProperties();
+		settingsPath 		= getLocalSettingsPath();
 		
 		File settingsFile = new File(settingsPath);
 		
@@ -54,15 +54,12 @@ public class Settings {
 		Properties defaultProperties = new Properties();
 		try{
 			defaultProperties.load(Settings.class.getResourceAsStream("defaults.conf"));
-		} catch (FileNotFoundException e) {
-			//non succede
-			e.printStackTrace();
-			return null;
 		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}
-		//set user system name as nickname 
+
+		//set user system name as nickname
 		defaultProperties.setProperty("nickname", System.getProperty("user.name"));
 		return defaultProperties;
 	}

@@ -68,23 +68,13 @@ public class ConnectWindow extends JFrame implements KeyListener, ChangeListener
 		;		
 		this.pack();
 	}
-	
-	/**Take String in the host field
-	 * @return
-	 */
-	public String getHost(){
-		return hostName.getText(); 
-	}
-	/**Take String in the port field
-	 * @return
-	 */
+
+	public String getHost(){ return hostName.getText();}
+
 	public String getPort(){
 		return hostPort.getText();
 	}
-	
-	
-	
-	
+
 
 	@Override
 	public void keyPressed(KeyEvent e) {

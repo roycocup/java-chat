@@ -8,7 +8,7 @@ A simple application that allows users to send private messages to each other.
 
 
 ## Roadmap
-- Make a server and client in separate threads. 
+- Create a dummy client for testing 
 - The server node should be able to see all nodes in network
 - Client should be able to connect to any of the nodes
 - Switch UI to JavaFX
