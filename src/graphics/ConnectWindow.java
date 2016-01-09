@@ -26,15 +26,15 @@ import spyer.Spyer;
 public class ConnectWindow extends JFrame implements KeyListener, ChangeListener{
 	
 	private static final String title = "Connect";
-	private static final JPanel northPanel = new JPanel();
-	private static final JPanel centerPanel = new JPanel();
-	private static final JPanel rightPanel = new JPanel();
-	private static final JPanel mainPanel = new JPanel(new BorderLayout());
-	private static final JLabel hostNameLabel = new JLabel("Hostname:");
-	private static final JTextField hostName = new JTextField(15);
-	private static final JCheckBox checkBox = new JCheckBox("default port ");
-	private static final JTextField hostPort = new JTextField(4);
-	private static final JButton connectButton = new JButton("Connect");
+	private static final JPanel northPanel 			= new JPanel();
+	private static final JPanel centerPanel 		= new JPanel();
+	private static final JPanel rightPanel 			= new JPanel();
+	private static final JPanel mainPanel 			= new JPanel(new BorderLayout());
+	private static final JLabel hostNameLabel 		= new JLabel("Hostname:");
+	private static final JTextField hostName 		= new JTextField(15);
+	private static final JCheckBox checkBox 		= new JCheckBox("default port ");
+	private static final JTextField hostPort 		= new JTextField(4);
+	private static final JButton connectButton 		= new JButton("Connect");
 	private static final ActionListener actionSpyer = new Spyer();
 	
 	public ConnectWindow(){
