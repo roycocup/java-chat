@@ -13,7 +13,7 @@ import graphics.MainWindow;
 import graphics.SettingsWindow;
 
 public class ChatEngine {
-    
+
     //windows
     private static MainWindow mainWindow;
     private static ConnectWindow connectWindow;
@@ -155,9 +155,6 @@ public class ChatEngine {
 	public synchronized static void incomingChatElements(String otherNickname) {
 		settings.setOtherNickname(otherNickname);		
 	}
-
-
-
 
 
 

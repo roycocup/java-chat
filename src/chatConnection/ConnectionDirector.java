@@ -11,6 +11,7 @@ public class ConnectionDirector
 {
 	private ConnectionServer connectionServer;
 	private VirtualChat vchat;
+	private static String sourceIP;
 	
 	//server
 	public void startServer()
@@ -93,8 +94,15 @@ public class ConnectionDirector
 	public void incomingChatElements(ChatElements chatElements){
 		ChatEngine.incomingChatElements(chatElements.getNickname());
 	}
-	
 
+
+	public synchronized static String getSourceIp() {
+		return ConnectionDirector.sourceIP;
+	}
+
+	public synchronized static void setSourceIp(String myIp) {
+		ConnectionDirector.sourceIP = myIp;
+	}
 
 	
 }
